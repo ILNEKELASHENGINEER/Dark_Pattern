@@ -1,0 +1,24 @@
+{
+    "manifest_version": 3,
+    "name": "Chrome Extension",
+    "description": "chrome extension using manifest v3",
+    "version": "0.0.1",
+
+    "options_page": "settings/settings.html",
+    "action": {
+        "default_title": "Chrome Addon v3 Starter",
+        "default_popup": "popup.html"
+    },
+    "permissions": ["activeTab","tabs","scripting"],
+    "host_permissions": [
+        "*://*/*"
+    ],
+    "background": {
+        "service_worker": "service-worker.js"
+        
+    },
+    "content_scripts": [{
+        "js": ["content.js"],
+        "matches": ["*://*/*"]
+    }]
+}

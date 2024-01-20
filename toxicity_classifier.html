@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Program</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/toxicity"></script>
+</head>
+<body>
+
+  <h1>Simple Program</h1>
+
+
+
+  <script>
+//this html is for testing purpose to test classification using javascript
+// actual model is in text_classification directory
+
+    // TensorFlow.js and Toxicity model
+  async function loadModel() {
+  const model = await toxicity.load();
+  return model;
+}
+    console.log("This is working");
+
+async function loadData() {
+  console.log('entered into load data');
+  const response = await fetch('dataset.csv');
+  const csvData = await response.text();
+  const parsedData = Papa.parse(csvData, { header: true }).data;
+  
+  // Extract predictor and output variables
+  const predictorData = parsedData.map((row) => parseFloat(row[1]));
+  const outputData = parsedData.map((row) => parseInt(row[2]));
+
+  return { predictorData, outputData };
+}
+
+// Preprocessing the data
+async function classifyText() {
+  const model = await loadModel();
+  const { predictorData, outputData } = await loadData();
+
+  // Sample text for classification
+  const sampleText = "you are intelligent developer yunus";
+
+  // Classify the sample text using the Toxicity model
+  const predictions = await model.classify('you are intelligent developer yunus');
+
+  if (predictions.length) {
+    console.log(`Text: ${sampleText }`);
+    console.log(`Predictions:`);
+    predictions.forEach((prediction) => {
+      console.log(`${prediction.label}: ${prediction.results[0].match}`);
+    });
+  } else {
+    console.log(`No predictions found for text: ${sampleText}`);
+  }
+}
+classifyText();
+
+
+
+
+  </script>
+
+</body>
+</html>
