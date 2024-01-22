@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "natural": "^6.10.4",
-    "papaparse": "^5.4.1"
-  }
-}
