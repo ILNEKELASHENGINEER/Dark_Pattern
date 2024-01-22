@@ -1,24 +1,29 @@
 {
-    "manifest_version": 3,
-    "name": "Chrome Extension",
-    "description": "chrome extension using manifest v3",
-    "version": "0.0.1",
+"manifest_version": 3,
+"name": "Dark Pattern Detector",
+"description": "chrome extension using manifest v3",
+"version": "0.0.2",
 
-    "options_page": "settings/settings.html",
-    "action": {
-        "default_title": "Chrome Addon v3 Starter",
-        "default_popup": "popup.html"
-    },
-    "permissions": ["activeTab","tabs","scripting"],
-    "host_permissions": [
-        "*://*/*"
-    ],
-    "background": {
-        "service_worker": "service-worker.js"
-        
-    },
-    "content_scripts": [{
-        "js": ["content.js"],
-        "matches": ["*://*/*"]
-    }]
+"options_ui": {
+    "page": "settings/settings.html"
+},
+"action": {
+    "default_title": "Chrome Addon v3 Starter",
+    "default_popup": "popup.html"
+},
+"permissions": ["activeTab","scripting"],
+"host_permissions": [
+    "*://*/*"
+],
+"background": {
+    "service_worker": "service-worker.js"
+},
+"content_scripts": [{
+    "js": ["content.js"],
+    "matches": ["*://*/*"]
+}],
+    "content_security_policy": {
+      "extension_pages": "script-src 'self'; object-src 'self';",
+      "sandbox": "sandbox allow-scripts allow-forms allow-popups allow-modals; script-src 'self' 'unsafe-inline' 'unsafe-eval'; child-src 'self';"
+    }
 }
