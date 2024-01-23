@@ -1,0 +1,26 @@
+{
+  "name": "nodeserver-classifier",
+  "version": "1.0.0",
+  "description": "This repository contains the nodejs server that runs the naive baiyes classifier in the local machine\r this classifier is called in chrome extension as api end point at http://localhost:3000/classify --> refer the server.js for complete details",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "jimp": "^0.3.5",
+    "multer": "^1.4.5-lts.1",
+    "natural": "^6.10.4",
+    "papaparse": "^5.4.1",
+    "tesseract.js": "^2.1.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}
