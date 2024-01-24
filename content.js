@@ -61,3 +61,61 @@ scrap.addEventListener("click", async () => {
     func: scrapfrompage,
   });
 });
+
+
+let adblockStatus = {}; // Object to keep track of adblock status for each URL
+
+document.addEventListener('DOMContentLoaded', () => {
+ const adblock = document.getElementById('blk');
+ adblock.addEventListener("click", async () => {
+    let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+    toggleAdblock(tab.id, tab.url);
+ });
+});
+
+async function toggleAdblock(tabId, tabUrl) {
+ if (adblockStatus[tabUrl] === undefined) {
+    adblockStatus[tabUrl] = true; // Adblock is initially turned on
+ }
+
+ const shouldBlock = !adblockStatus[tabUrl]; // Invert the current status
+ adblockStatus[tabUrl] = shouldBlock; // Update the status
+
+ const url = new URL(tabUrl);
+ const domain = url.hostname;
+
+ chrome.scripting.executeScript({
+    target: { tabId: tabId },
+    func: setBlockStatus,
+    args: [domain, shouldBlock],
+ });
+}
+
+function setBlockStatus(domain, shouldBlock) {
+ if (shouldBlock) {
+  addblck(domain);
+ }
+}
+
+
+function addblck(domain) {
+  console.log(`Blocking domain: ${domain}`);
+const blockedDomains = [
+  'googlesyndication.com',
+  'pagead2.googlesyndication.com',
+  'googleads.g.doubleclick.net',
+  'linkbucks.com',
+  'adf.ly',
+  'doubleclick.com',
+  'doubleclicksolutions.com',
+  'doubleclick.net',
+  'googleadservices.com',
+  'ads.github.com',
+  ];
+  console.log("Blocking started");
+  const url = new URL(domain);
+  const domainname = url.hostname;
+  if (blockedDomains.includes(domainname)) {
+    return { cancel: true }
+  }
+}
