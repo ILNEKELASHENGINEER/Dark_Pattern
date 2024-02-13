@@ -6,33 +6,25 @@
     <link rel="stylesheet" href="./css/popup.css">
     <title>Dark Pattern Detector</title>
 </head>
-<div class="wrap">
-<body>
-    <header class="header">
-        <h2 class="title">Dark Pattern Detector</h2>
-    </header>
-    <main class="content">
-       
-        <h3 class="title ">This extension is currently under development.</h3>
-        <h4 class="title">Click "Show Dark Patterns" to analyze the current webpage.</h4>
-        <button id="run">Show Dark Patterns</button>
-        <button id="screenshotBtn">Take Screenshot</button>
-        <button id="blk">Ad block</button>
-        <div class="title" id="result"></div>
-        <footer class="footer title">
-            <h5>&copy; KEC-ChiperCrew</h5>
-            <!-- <br/> -->
-            
+    <div class="container">
+        <header class="header">
+            <h1 class="title">Dark Pattern Detector</h1>
+        </header>
+        <main class="content">
+            <p class="subtitle">Detect deceptive design practices on websites with our Dark Pattern Detector Extension.</p>
+            <div class="button-container">
+                <button id="run">Show Dark Patterns</button>
+                <p class="subtitle">Stay Informed</p>
+                <button id="screenshotBtn">Take Screenshot</button>
+                <p class="subtitle">Increase privacy by Ad-Block</p>
+                <button id="blk">Ad block</button>
+            </div>
+            <div class="result" id="result"></div>
+        </main>
+        <footer class="footer">
+            <p>&copy; KEC-ChiperCrew</p>
         </footer>
-    </main>
-    <!-- <a href="settings/settings.html" class="button">Click me</a> -->
-
-
-    <script src="./js/html2canvas.min.js"></script>
-    <script src="./content.js"></script>
-</body>
-</div>
+    </div>
+    <script src="./popup.js"></script>
+    <script src="./js/html2canvas.js"></script>
 </html>
-
-
-
