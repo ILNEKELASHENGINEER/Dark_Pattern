@@ -34,7 +34,8 @@ function scrapfrompage() {
                       tagsToHighlight.forEach(tag => {
                           document.querySelectorAll(tag).forEach(element => {
                               const regex = new RegExp(`\\b(${result.text})\\b`, "gi");
-                              element.innerHTML = element.innerHTML.replace(regex, (match) => `<span style="background-color: yellow; font-weight: bold;">${match}</span>`);
+                              element.innerHTML = element.innerHTML.replace(regex, (match) =>
+                            `<span style="border: 3px solid red; padding: 2px; background-color: yellow; font-weight: bold; color:black;">${match}</span>`);
                           });
                       });
                   }
@@ -94,6 +95,31 @@ function setBlockStatus(domain, shouldBlock) {
   addblck(domain);
  }
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('uploadButton').addEventListener('click', function () {
+        const fileInput = document.getElementById('imageInput');
+        const file = fileInput.files[0];
+        
+        if (file) {
+            const reader = new FileReader();
+
+            reader.onload = function(event) {
+                const img = document.createElement('img');
+                img.src = event.target.result;
+                img.style.maxWidth = '200px'; // Limit image width for preview
+                const previewDiv = document.getElementById('preview');
+                previewDiv.innerHTML = '';
+                previewDiv.appendChild(img);
+            };
+
+            reader.readAsDataURL(file);
+        } else {
+            alert('Please select an image file.');
+        }
+    });
+});
+
 
 
 function addblck(domain) {
