@@ -4,7 +4,8 @@
 Still now process screenshots
 
 **1** html page is updated
-![image](https://github.com/ILNEKELASHENGINEER/Dark_Pattern/assets/93472619/f37cd581-40f2-4bab-8f2f-356dd2ec9c1d)
+![image](https://github.com/ILNEKELASHENGINEER/Dark_Pattern/assets/93472619/5bcc1ccb-52ff-4fb9-808b-0dd684d45cec)
+
 
 
 
