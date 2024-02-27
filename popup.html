@@ -1,36 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self'">
-    <link rel="stylesheet" href="./css/popup.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self'" />
+    <link rel="stylesheet" href="./css/popup.css" />
     <title>Dark Pattern Detector</title>
-</head>
-<div class="container">
+  </head>
+  <div class="container">
     <header class="header">
-        <h1 class="title">Dark Pattern Detector</h1>
+      <h1 class="title">Dark Pattern Detector</h1>
     </header>
     <main class="content">
-        <p class="subtitle">Detect deceptive design practices on websites with our Dark Pattern Detector Extension.</p>
-        <div class="button-container">
-            <button id="run">Show Dark Patterns</button>
-            <p class="subtitle">Stay Informed by Uploading Screenshot</p>
-            <input type="file" id="imageInput" accept="image/*">
-            <button id="uploadButton">Upload</button>
-            <div id="preview"></div>
-            <p class="subtitle">Increase privacy by Ad-Block</p>
-            <button id="blk">Ad block</button>
-            <p class="subtitle">Check the Product Price</p>
-            <input placeholder="Paste the product url here">
-            <button>Is is Discount?</button>
-            
-        </div>
+      <p class="subtitle">
+        Detect deceptive design practices on websites with our Dark Pattern
+        Detector Extension.
+      </p>
+      <div class="button-container">
+        <button id="run">Show Dark Patterns</button>
+        <p class="subtitle">Stay Informed by Uploading Screenshot</p>
+        <input type="file" id="imageInput" accept="image/*" />
+        <button id="uploadButton">Upload</button>
+        <div id="preview"></div>
+        <p class="subtitle">Increase privacy by Ad-Block</p>
+        <button id="blk">Ad block</button>
+        <p class="subtitle">Check the Product Price</p>
+        <input placeholder="Paste the product url here" id="price" />
+        <button id="track">Is is Discount?</button>
+
         <div class="result" id="result"></div>
+      </div>
     </main>
     <footer class="footer">
-        <p>&copy; KEC-ChiperCrew</p>
+      <p>&copy; KEC-ChiperCrew</p>
     </footer>
-</div>
-<script src="./popup.js"></script>
+  </div>
+  <script src="./popup.js"></script>
 </html>
