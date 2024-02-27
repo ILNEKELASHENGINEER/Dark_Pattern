@@ -3,8 +3,9 @@
 
 Still now process screenshots
 
-**1** html page is updated
-![image](https://github.com/ILNEKELASHENGINEER/Dark_Pattern/assets/93472619/5bcc1ccb-52ff-4fb9-808b-0dd684d45cec)
+**1** price tracker is integrated
+![image](https://github.com/ILNEKELASHENGINEER/Dark_Pattern/assets/93472619/956c4a8f-e704-4a5a-86ca-5e9287b7f6ca)
+
 
 
 
